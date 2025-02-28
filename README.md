@@ -8,7 +8,7 @@ docker compose exec app bash
 laravel new
 ```
 
-move content out of nested folder and into root otehrwise amend docker-configs/nginx/default.conf and docker-compose nginx service
+move content out of nested folder and into root otherwise amend docker-configs/nginx/default.conf and docker-compose nginx service
 
 
 
@@ -59,22 +59,7 @@ createInertiaApp({
     ],
     server : { host: true, port: 5173, hmr: { protocol: 'ws' } }
 });
-```import './bootstrap';
-
-import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
-
-createInertiaApp({
-  resolve: name => {
-    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-    return pages[`./Pages/${name}.vue`]
-  },
-  setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
-      .use(plugin)
-      .mount(el)
-  },
-})
+```
 
 
 ##### Resources/js/app.js
@@ -105,7 +90,7 @@ Create a resources/js/Pages directory and add a welcome.vue
 
 
 ##### Basic vue page SSR
-````
+```
 <script>
 export default {
     data() {
@@ -138,4 +123,4 @@ export default {
         <button @click="not()">Test</button>
     </div>
 </template>
-````
+```
