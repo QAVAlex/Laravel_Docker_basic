@@ -68,7 +68,7 @@ import './bootstrap';
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
-
+npm install tailwindcss @tailwindcss/vite
 createInertiaApp({
   resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
@@ -83,9 +83,17 @@ createInertiaApp({
 ```
 
 
-##### Final setup
+##### Pages to render
 ```
 Create a resources/js/Pages directory and add a welcome.vue
+```
+
+
+
+
+##### Tailwind
+```
+https://tailwindcss.com/docs/installation/framework-guides/laravel/vite
 ```
 
 
