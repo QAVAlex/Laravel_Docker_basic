@@ -33,7 +33,22 @@ import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
+export default defineConfig({import './bootstrap';
+
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+    return pages[`./Pages/${name}.vue`]
+  },
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el)
+  },
+})
     plugins: [
         vue(),
         laravel({
@@ -44,7 +59,22 @@ export default defineConfig({
     ],
     server : { host: true, port: 5173, hmr: { protocol: 'ws' } }
 });
-```
+```import './bootstrap';
+
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+    return pages[`./Pages/${name}.vue`]
+  },
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el)
+  },
+})
 
 
 ##### Resources/js/app.js
@@ -71,4 +101,41 @@ createInertiaApp({
 ##### Final setup
 ```
 Create a resources/js/Pages directory and add a welcome.vue
+```
+
+
+##### Basic vue page SSR
+```
+<script>
+export default {
+    data() {
+        return {
+            count: 1
+        }
+    },
+    mounted() {
+        console.log('here')
+    },
+    methods: {
+        testing() {
+            console.log(123)
+        },
+        not() {
+            console.log('33')
+        }
+    }
+}
+</script>
+
+<template>
+    <div>
+        {{ console.log(this.$page) }}
+        {{$page.props.user}}
+        <button @click="count += 1">Increment</button>
+        <button @click="count -= 1">Decrement</button>
+        <small v-text="count"></small>
+        <button @click="testing()">Test</button>
+        <button @click="not()">Test</button>
+    </div>
+</template>
 ```
