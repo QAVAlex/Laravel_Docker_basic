@@ -12,7 +12,7 @@ move content out of nested folder and into root otehrwise amend docker-configs/n
 
 
 
-#Fortify and Inertia
+# Fortify and Inertia
 ```
 composer require laravel/fortify
 php artisan fortify:install
@@ -26,7 +26,7 @@ https://inertiajs.com/client-side-setup
 npm i @vitejs/plugin-vue
 ```
 
-#####vite.config.js
+##### vite.config.js
 ```
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
@@ -47,7 +47,7 @@ export default defineConfig({
 ```
 
 
-#####Resources/js/app.js
+##### Resources/js/app.js
 ```
 import './bootstrap';
 
@@ -68,7 +68,7 @@ createInertiaApp({
 ```
 
 
-#####Misc
+##### Final setup
 ```
 Create a resources/js/Pages directory and add a welcome.vue
 ```
