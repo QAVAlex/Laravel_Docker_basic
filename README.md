@@ -105,7 +105,7 @@ Create a resources/js/Pages directory and add a welcome.vue
 
 
 ##### Basic vue page SSR
-```
+````
 <script>
 export default {
     data() {
@@ -138,4 +138,4 @@ export default {
         <button @click="not()">Test</button>
     </div>
 </template>
-```
+````
